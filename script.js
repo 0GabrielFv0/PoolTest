@@ -54,6 +54,13 @@ function calcularDosagem(produto, litragem) {
 
 function exibirRecomendacoes(recomendacoes, litragem) {
     var resultadosDiv = document.getElementById('recomendacoes');
+
+    // Verifica se o elemento com o ID "recomendacoes" existe
+    if (!resultadosDiv) {
+        console.error("Elemento com o ID 'recomendacoes' não encontrado.");
+        return;
+    }
+
     resultadosDiv.innerHTML = "<h2>Recomendações:</h2>";
 
     if (Object.keys(recomendacoes).length === 0) {
@@ -70,3 +77,4 @@ function exibirRecomendacoes(recomendacoes, litragem) {
         }
     }
 }
+

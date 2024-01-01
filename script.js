@@ -6,7 +6,7 @@ function calcularRecomendacoes() {
 
     var recomendacoes = obterRecomendacoes(ph, cloro, alcalinidade, litragem);
 
-    exibirRecomendacoes(recomendacoes);
+    exibirRecomendacoes(recomendacoes, litragem);
 }
 
 function obterRecomendacoes(ph, cloro, alcalinidade, litragem) {
@@ -32,14 +32,27 @@ function obterRecomendacoes(ph, cloro, alcalinidade, litragem) {
 
     if (litragem < 5000) {
         recomendacoes.produto4 = "Suplemento de Litragem";
+        recomendacoes.dosagem4 = calcularDosagem(recomendacoes.produto4, litragem);
     } else if (litragem > 10000) {
         recomendacoes.produto4 = "Estabilizador de Litragem";
+        recomendacoes.dosagem4 = calcularDosagem(recomendacoes.produto4, litragem);
     }
 
     return recomendacoes;
 }
 
-function exibirRecomendacoes(recomendacoes) {
+function calcularDosagem(produto, litragem) {
+    // Exemplo de cálculo de dosagem, você precisa adaptar isso com base nas instruções do fabricante.
+    // Esta é uma fórmula simples para fins de exemplo.
+    if (produto === "Suplemento de Litragem") {
+        return litragem * 0.002; // Exemplo: 0.2% da litragem
+    } else if (produto === "Estabilizador de Litragem") {
+        return litragem * 0.001; // Exemplo: 0.1% da litragem
+    }
+    // Adicione mais condições conforme necessário para outros produtos
+}
+
+function exibirRecomendacoes(recomendacoes, litragem) {
     var resultadosDiv = document.getElementById('recomendacoes');
     resultadosDiv.innerHTML = "<h2>Recomendações:</h2>";
 
@@ -48,7 +61,11 @@ function exibirRecomendacoes(recomendacoes) {
     } else {
         for (var produto in recomendacoes) {
             if (recomendacoes.hasOwnProperty(produto)) {
-                resultadosDiv.innerHTML += "<p><strong>" + produto + ":</strong> " + recomendacoes[produto] + "</p>";
+                if (produto.startsWith('dosagem')) {
+                    resultadosDiv.innerHTML += "<p><strong>" + produto + ":</strong> " + recomendacoes[produto].toFixed(2) + " litros</p>";
+                } else {
+                    resultadosDiv.innerHTML += "<p><strong>" + produto + ":</strong> " + recomendacoes[produto] + "</p>";
+                }
             }
         }
     }

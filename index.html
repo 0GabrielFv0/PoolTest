@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Site - Página Principal</title>
+    <title>PoolTeste - Página Principal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Página Principal</h1>
+        <h1>PoolTeste - Medição da Piscina</h1>
 
-        <form id="medicoesForm">
+        <div id="medicoesForm">
             <label for="ph">pH:</label>
             <input type="number" id="ph" step="0.1" required>
 
@@ -25,7 +25,7 @@
             <input type="number" id="litragem" required>
 
             <button type="button" onclick="calcularRecomendacoes()">Calcular Recomendações</button>
-        </form>
+        </div>
 
         <div id="recomendacoes">
             <!-- Aqui serão exibidas as recomendações -->

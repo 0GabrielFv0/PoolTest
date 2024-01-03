@@ -29,9 +29,19 @@ function obterRecomendacoes(ph, cloro, alcalinidade, litragem) {
     return recomendacoes;
 }
 
-function calcularDosagem(produto, litragem) {
-    // Exemplo de cálculo de dosagem. Substitua esses valores com informações reais.
-    var dosagemPorLitro = 0;
+function calcularRecomendacoes() {
+    var ph = parseFloat(document.getElementById('ph').value);
+    var cloro = parseFloat(document.getElementById('cloro').value);
+    var alcalinidade = parseFloat(document.getElementById('alcalinidade').value);
+    var litragem = parseFloat(document.getElementById('litragem').value);
+
+    var recomendacoes = obterRecomendacoes(ph, cloro, alcalinidade, litragem);
+    exibirRecomendacoes(recomendacoes);
+}
+
+function exibirRecomendacoes(recomendacoes) {
+    var recomend
+
 
     switch (produto) {
         case "Alcalinizador de pH":

@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -16,15 +18,17 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Adiciona margem para melhor espaçamento */
 }
 
-form label, form input {
+form label,
+form input {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Aumenta o espaçamento entre rótulos e inputs */
 }
 
 form input {
-    width: 100%;
+    width: calc(100% - 20px); /* Adiciona espaço para evitar a quebra em alguns navegadores */
     padding: 10px;
     box-sizing: border-box;
 }

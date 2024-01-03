@@ -17,21 +17,14 @@ function obterRecomendacoes(ph, cloro, alcalinidade, litragem) {
         recomendacoes.dosagem2 = calcularDosagem(recomendacoes.produto2, litragem);
     }
 
-    if (alcalinidade < 80) {
+    if (alcalinidade < 8) {
         recomendacoes.produto3 = "Elevador de Alcalinidade";
         recomendacoes.dosagem3 = calcularDosagem(recomendacoes.produto3, litragem);
-    } else if (alcalinidade > 120) {
+    } else if (alcalinidade > 12) {
         recomendacoes.produto3 = "Redutor de Alcalinidade";
         recomendacoes.dosagem3 = calcularDosagem(recomendacoes.produto3, litragem);
     }
 
-    if (litragem < 5000) {
-        recomendacoes.produto4 = "Estabilizador de Litragem";
-        recomendacoes.dosagem4 = calcularDosagem(recomendacoes.produto4, litragem);
-    } else if (litragem > 10000) {
-        recomendacoes.produto4 = "Estabilizador de Litragem";
-        recomendacoes.dosagem4 = calcularDosagem(recomendacoes.produto4, litragem);
-    }
 
     return recomendacoes;
 }

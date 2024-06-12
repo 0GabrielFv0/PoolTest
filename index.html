@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoolTeste - Página Principal</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Gerenciamento de Boletos</title>
+    <style>
+        /* Estilos CSS aqui */
+    </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>PoolTeste - Medição da Piscina</h1>
-
-        <div id="medicoesForm">
-            <label for="ph">pH:</label>
-            <input type="number" id="ph" step="0.1" required>
-
-            <label for="cloro">Cloro:</label>
-            <input type="number" id="cloro" step="0.1" required>
-
-            <label for="alcalinidade">Alcalinidade:</label>
-            <input type="number" id="alcalinidade" step="0.1" required>
-
-            <label for="litragem">Litragem da Piscina (em litros):</label>
-            <input type="number" id="litragem" required>
-
-            <button type="button" onclick="calcularRecomendacoes()">Calcular Recomendações</button>
-        </div>
-
-        <div id="recomendacoes">
-            <!-- Aqui serão exibidas as recomendações -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <header>
+        <h1>Gerenciamento de Boletos</h1>
+    </header>
+    <main>
+        <h2>Adicionar Novo Boleto</h2>
+        <form action="adicionar_boleto.php" method="post">
+            <label for="nome_empresa">Nome da Empresa:</label><br>
+            <input type="text" id="nome_empresa" name="nome_empresa" required><br>
+            <label for="valor_boleto">Valor do Boleto:</label><br>
+            <input type="number" id="valor_boleto" name="valor_boleto" required><br>
+            <label for="data_vencimento">Data de Vencimento:</label><br>
+            <input type="date" id="data_vencimento" name="data_vencimento" required><br>
+            <label for="status_pagamento">Status de Pagamento:</label><br>
+            <select id="status_pagamento" name="status_pagamento">
+                <option value="pendente">Pendente</option>
+                <option value="pago">Pago</option>
+            </select><br>
+            <button type="submit">Adicionar Boleto</button>
+        </form>
+        <h2>Boletos Registrados</h2>
+        <table>
+            <tr>
+                <th>Nome da Empresa</th>
+                <th>Valor</th>
+                <th>Data de Vencimento</th>
+                <th>Status de Pagamento</th>
+            </tr>
+            <!-- Aqui serão exibidos os boletos registrados no banco de dados -->
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gerenciamento de Boletos</p>
+    </footer>
 </body>
 </html>
